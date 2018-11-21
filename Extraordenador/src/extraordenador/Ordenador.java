@@ -9,40 +9,40 @@ import javax.swing.JOptionPane;
 public class Ordenador {
     public Ordenador(){}
     
-    CPU obxC=new CPU();
-    Rato obxR=new Rato();
-    Teclado obxT=new Teclado();
-    Monitor obxM=new Monitor();
+    CPU procesador=new CPU();
+    Rato raton=new Rato();
+    Teclado teclado=new Teclado();
+    Monitor monitor=new Monitor();
     
     private double precio;
     
     public void introducirAtributos(){
-        obxC.nucleo();
-        obxC.ram();
-        obxR.inhalam();
-        obxR.model();
-        obxT.numeroteclas();
-        obxM.marcas();
-        obxM.tamaño();
+        procesador.nucleo();
+        procesador.ram();
+        raton.inhalam();
+        raton.model();
+        teclado.numeroteclas();
+        monitor.marcas();
+        monitor.tamaño();
     }
     
     public void visualizarAtributos(){
-        obxC.visualizar();
-        obxR.visualizar();
-        obxT.visualizar();
-        obxM.visualizar();
+        procesador.visualizar();
+        raton.visualizar();
+        teclado.visualizar();
+        monitor.visualizar();
     }
     public void calcularPrezo(){
         double precioCPU,precioRato,precioTeclado,precioMonitor;
-        precioCPU=obxC.nucleos()*5;
-        if (obxR.inhalambrico()==true){
+        precioCPU=procesador.nucleos()*5;
+        if (raton.inhalambrico()==true){
             precioRato=1.5;
         }
         else {
             precioRato=1;
         }
-        precioTeclado=obxT.numteclas()*0.7;
-        precioMonitor=obxM.pulgadas()*12;
+        precioTeclado=teclado.numteclas()*0.7;
+        precioMonitor=monitor.pulgadas()*12;
         precio=precioCPU+precioRato+precioTeclado+precioMonitor;
         JOptionPane.showMessageDialog(null,"El precio es: "+precio);
         
