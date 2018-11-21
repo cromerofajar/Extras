@@ -9,7 +9,6 @@ import pedirDatos.Datos;
  */
 public class Ordenador {
     public Ordenador(){}
-    Datos lib=new Datos();
     
     CPU procesador=new CPU();
     Rato raton=new Rato();
@@ -25,23 +24,23 @@ public class Ordenador {
     
     public void introducirAtributos(){
         procesador.setNucleo(Integer.parseInt(JOptionPane.showInputDialog(null, "Introduzca numero de nucleos")));
-        nucleos=lib.solicitarInt(procesador.getNucleo());
+        nucleos=Datos.solicitarInt(procesador.getNucleo());
         procesador.setRam(Integer.parseInt(JOptionPane.showInputDialog(null,"Introduzca cantidad de ram")));
-        ram=lib.solicitarInt(procesador.getRam());
-        respuesta=lib.solicitarInt(JOptionPane.showOptionDialog(null,"El raton es inhalambrico?","Raton",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE,null,null,null));
+        ram=Datos.solicitarInt(procesador.getRam());
+        respuesta=Datos.solicitarInt(JOptionPane.showOptionDialog(null,"El raton es inhalambrico?","Raton",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE,null,null,null));
         if (respuesta==1)
-            inhalambrico=lib.solicitarBoolean(false);
+            inhalambrico=Datos.solicitarBoolean(false);
         else
-            inhalambrico=lib.solicitarBoolean(true);
+            inhalambrico=Datos.solicitarBoolean(true);
         
         raton.setModelo(JOptionPane.showInputDialog(null,"Introduzca el modelo"));
-        modelo=lib.solicitarString(raton.getModelo());
+        modelo=Datos.solicitarString(raton.getModelo());
         teclado.setNumTeclas(Integer.parseInt(JOptionPane.showInputDialog(null, "Introduzca numero de teclas")));
-        nteclas=lib.solicitarInt(teclado.getNumTeclas());
+        nteclas=Datos.solicitarInt(teclado.getNumTeclas());
         monitor.setMarca(JOptionPane.showInputDialog(null,"Introduzca la marca"));
-        marca=lib.solicitarString(monitor.getMarca());
+        marca=Datos.solicitarString(monitor.getMarca());
         monitor.setPulgadas(Float.parseFloat(JOptionPane.showInputDialog(null,"Introduzca las pulgadas")));
-        pulgadas=lib.solicitarFloat(monitor.getPulgadas());
+        pulgadas=Datos.solicitarFloat(monitor.getPulgadas());
     }
     
     public void visualizarAtributos(){
