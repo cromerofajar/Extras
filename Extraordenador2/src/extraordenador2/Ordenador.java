@@ -9,42 +9,42 @@ import javax.swing.JOptionPane;
 public class Ordenador {
     public Ordenador(){}
     
-    CPU obxC=new CPU();
-    Rato obxR=new Rato();
-    Teclado obxT=new Teclado();
-    Monitor obxM=new Monitor();
+    CPU procesador=new CPU();
+    Rato raton=new Rato();
+    Teclado teclado=new Teclado();
+    Monitor monitor=new Monitor();
     
     private double precio;
     
     public void introducirAtributos(){
-        obxC.nucleo(Integer.parseInt(JOptionPane.showInputDialog(null, "Introduzca numero de nucleos")));
-        obxC.ram(Integer.parseInt(JOptionPane.showInputDialog(null,"Introduzca cantidad de ram")));
+        procesador.nucleo(Integer.parseInt(JOptionPane.showInputDialog(null, "Introduzca numero de nucleos")));
+        procesador.ram(Integer.parseInt(JOptionPane.showInputDialog(null,"Introduzca cantidad de ram")));
         int respuesta= JOptionPane.showOptionDialog(null,"El raton es inhalambrico?","Raton",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE,null,null,null);
         if (respuesta==1)
-            obxR.inhalam(false);
+            raton.inhalam(false);
         else
-            obxR.inhalam(true);
+            raton.inhalam(true);
         
-        obxR.model(JOptionPane.showInputDialog(null,"Introduzca el modelo"));
-        obxT.numeroteclas(Integer.parseInt(JOptionPane.showInputDialog(null, "Introduzca numero de teclas")));
-        obxM.marcas(JOptionPane.showInputDialog(null,"Introduzca la marca"));
-        obxM.tamaño(Float.parseFloat(JOptionPane.showInputDialog(null,"Introduzca las pulgadas")));
+        raton.model(JOptionPane.showInputDialog(null,"Introduzca el modelo"));
+        teclado.numeroteclas(Integer.parseInt(JOptionPane.showInputDialog(null, "Introduzca numero de teclas")));
+        monitor.marcas(JOptionPane.showInputDialog(null,"Introduzca la marca"));
+        monitor.tamaño(Float.parseFloat(JOptionPane.showInputDialog(null,"Introduzca las pulgadas")));
     }
     
     public void visualizarAtributos(){
-        JOptionPane.showMessageDialog(null,"Su ordenador tiene:\n"+"Con CPU de "+obxC.nucleos()+ " nucleos y "+ obxC.rams()+" GB ram\nCon Monitor de marca "+ obxM.marca()+ " y de "+obxM.pulgadas()+" pulgadas\nCon Raton de funcion inhalambrica "+ obxR.inhalambrico()+" y modelo "+obxR.modelo()+"\nCon un teclado de "+obxT.numteclas());
+        JOptionPane.showMessageDialog(null,"Su ordenador tiene:\n"+"Con CPU de "+procesador.nucleos()+ " nucleos y "+ procesador.rams()+" GB ram\nCon Monitor de marca "+ monitor.marca()+ " y de "+monitor.pulgadas()+" pulgadas\nCon Raton de funcion inhalambrica "+ raton.inhalambrico()+" y modelo "+raton.modelo()+"\nCon un teclado de "+teclado.numteclas());
     }
     public void calcularPrezo(){
         double precioCPU,precioRato,precioTeclado,precioMonitor;
-        precioCPU=obxC.nucleos()*5;
-        if (obxR.inhalambrico()==true){
+        precioCPU=procesador.nucleos()*5;
+        if (raton.inhalambrico()==true){
             precioRato=1.5;
         }
         else {
             precioRato=1;
         }
-        precioTeclado=obxT.numteclas()*0.7;
-        precioMonitor=obxM.pulgadas()*12;
+        precioTeclado=teclado.numteclas()*0.7;
+        precioMonitor=monitor.pulgadas()*12;
         precio=precioCPU+precioRato+precioTeclado+precioMonitor;
         JOptionPane.showMessageDialog(null,"El precio es: "+precio);
         
